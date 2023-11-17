@@ -685,6 +685,42 @@ Final_Model<-train(AGB~b11+S2REP_new+WDRVI
 Final_Model$results
 Final_Model$finalModel
 
+########################SVM MODEL using vsurf ####################################################################################
+#set.seed(123)
+Final_Model<-train(AGB~b11+s2rep_new +WDRVI
+                   ,
+                   data = Ddata,
+                   method='svmRadial',
+                   trcontrol=controlparameters)
+
+#importance=T)                   ################Importance=T gives the importance of variables for each classes#####
+Final_Model$results
+Final_Model$finalModel
+
+# For svmLinear
+
+Final_Model<-train(AGB~b11+s2rep_new +WDRVI
+                   ,
+                   data = Ddata,
+                   method='svmLinear',
+                   trcontrol=controlparameters)
+
+#importance=T)                   ################Importance=T gives the importance of variables for each classes#####
+Final_Model$results
+Final_Model$finalModel
+
+#For svmPoly
+Final_Model<-train(AGB~b11+s2rep_new +WDRVI
+                   ,
+                   data = Ddata,
+                   method='svmPoly',
+                   trcontrol=controlparameters)
+
+#importance=T)                   ################Importance=T gives the importance of variables for each classes#####
+Final_Model$results
+Final_Model$finalModel
+
+
 #######lets predict##########################################
 
 #lets save the raster files into local device first
